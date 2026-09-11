@@ -48,4 +48,28 @@ export const projects: Project[] = [
     image1: "/img/gitpulse-1.png",
     image2: "/img/gitpulse-2.png",
   },
+  {
+    slug: "payeazie",
+    title: "Payeazie",
+    tags: "NODE.JS, FASTIFY, REACT, POSTGRESQL, REDIS/BULLMQ",
+    description:
+      "A full-stack payment operations platform modeling a real payment lifecycle — async charge processing through Redis/BullMQ workers, state-machine transitions with audit logging, refunds, stuck-payment recovery, and an internal ops dashboard for manual intervention.",
+    link: "https://github.com/aryanthakur0505/payeazie",
+    linkLabel: "VIEW SOURCE CODE",
+    github: "https://github.com/aryanthakur0505/payeazie",
+    image1: "/img/payeazie-1.png",
+    image2: "/img/payeazie-2.png",
+  },
+  {
+    slug: "magicpin",
+    title: "MagicPin",
+    tags: "PYTHON, FASTAPI, RULE-BASED NLG",
+    description:
+      "A deterministic, anti-hallucination message composer built for an AI messaging challenge — generates merchant/customer engagement messages from per-trigger templates instead of an LLM, plus a state-machine handler for multi-turn replies, so nothing is ever fabricated.",
+    link: "https://github.com/aryanthakur0505/magicpin",
+    linkLabel: "VIEW SOURCE CODE",
+    github: "https://github.com/aryanthakur0505/magicpin",
+    image1: "/img/magicpin-1.png",
+    image2: "/img/magicpin-2.png",
+  },
 ];
