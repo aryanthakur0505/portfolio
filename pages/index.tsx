@@ -3,6 +3,7 @@ import Head from "next/head";
 import { cubicBezier, motion } from "framer-motion";
 import { Navigation } from "../components/Navigation/Navigation";
 import AnimatedGradientBackground from "../components/AnimatedGradientBackground";
+import ProjectMarquee from "../components/ProjectMarquee";
 import { projects } from "../data/projects";
 
 const locomotiveScroll =
@@ -171,6 +172,8 @@ const Home: React.FC = () => {
             <span>Yeah, I work hard </span> <small>💼</small>
           </h1>
           <p className="paragraph">Each project is unique. Here are some of my works.</p>
+
+          <ProjectMarquee />
 
           {projects.map((project) => (
             <div className="project-card" key={project.slug}>
