@@ -1,0 +1,18 @@
+// COLORS — own scheme (teal/cyan/violet on near-black), not the reference site's purple.
+:root {
+  --color-white: #ffffff;
+  --color-gray: #a9adba;
+  --color-black: #000000;
+  --color-bg: #0b0b12;
+  --color-bg-alt: #171e2f;
+  --color-accent: #00d9c0;
+  --color-light-blue: #00d9c0;
+  --color-light-purple: #a78bfa;
+}
+
+// FONTS — free Google Fonts standing in for the reference site's licensed
+// commercial fonts (Circular Std, D-DIN Condensed, Mark Pro), loaded in
+// pages/_document.tsx.
+$font-primary: "Inter", sans-serif;
+$font-secondary: "Archivo Black", sans-serif;
+$font-tertiary: "Oswald", sans-serif;
