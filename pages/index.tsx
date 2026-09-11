@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import { cubicBezier, motion } from "framer-motion";
 import { Navigation } from "../components/Navigation/Navigation";
+import AnimatedGradientBackground from "../components/AnimatedGradientBackground";
 import { projects } from "../data/projects";
 
 const locomotiveScroll =
@@ -129,6 +130,7 @@ const Home: React.FC = () => {
       <Navigation isOpen={isToggleOpen} toggleOpen={() => toggleBodyScroll(isToggleOpen)} />
 
       <div className="header-wrapper">
+        <AnimatedGradientBackground />
         <header className="header">
           <span className="header__eyebrow">ARYAN THAKUR — FULL STACK DEVELOPER</span>
           <div className="header__hero">
