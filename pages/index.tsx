@@ -4,13 +4,9 @@ import { cubicBezier, motion } from "framer-motion";
 import { Navigation } from "../components/Navigation/Navigation";
 import AnimatedGradientBackground from "../components/AnimatedGradientBackground";
 import ProjectMarquee from "../components/ProjectMarquee";
-import { projects } from "../data/projects";
 
 const locomotiveScroll =
   typeof window !== "undefined" ? require("locomotive-scroll").default : null;
-
-const hoverEffect =
-  typeof window !== "undefined" ? require("hover-effect").default : null;
 
 const transition = {
   duration: 1.4,
@@ -34,21 +30,6 @@ const Home: React.FC = () => {
 
     window.addEventListener("load", () => {
       lscroll.update();
-    });
-
-    // WebGL image-hover distortion on each project card
-    // (guarded against React 18 dev-mode double-invoking effects)
-    Array.from(document.querySelectorAll(".project-card__middle")).forEach((el: any) => {
-      if (el.querySelector("canvas")) return;
-      const imgs: any = Array.from(el.querySelectorAll("img"));
-      if (imgs.length < 2) return;
-      new hoverEffect({
-        parent: el,
-        intensity: 0.2,
-        image1: imgs[0].getAttribute("src"),
-        image2: imgs[1].getAttribute("src"),
-        displacementImage: el.dataset.displacement,
-      });
     });
 
     // custom cursor
@@ -174,45 +155,6 @@ const Home: React.FC = () => {
           <p className="paragraph">Each project is unique. Here are some of my works.</p>
 
           <ProjectMarquee />
-
-          {projects.map((project) => (
-            <div className="project-card" key={project.slug}>
-              <div className="project-card__left">
-                <h4 className="heading-4">{project.tags}</h4>
-              </div>
-              <div className="project-card__middle" data-displacement="/img/displacement.png">
-                <img src={project.image1} alt={`${project.title} preview`} />
-                <img src={project.image2} alt={`${project.title} preview alternate`} />
-              </div>
-              <div className="project-card__right">
-                <h2
-                  data-scroll
-                  data-scroll-offset="35%"
-                  data-scroll-repeat={true}
-                  data-scroll-class={`${project.slug}-anim`}
-                  className="heading-2"
-                >
-                  {project.title}
-                </h2>
-                <p>{project.description}</p>
-                <a
-                  rel="noopener"
-                  target="_blank"
-                  href={project.link}
-                  className="project-card__link"
-                >
-                  {project.linkLabel}
-                </a>
-                {project.github && (
-                  <div className="project-card__socials">
-                    <a rel="noopener" target="_blank" href={project.github}>
-                      <img src="/svg/github.svg" alt="github icon" />
-                    </a>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
         </section>
 
         <section className="section-contact">

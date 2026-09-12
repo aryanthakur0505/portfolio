@@ -23,14 +23,13 @@
 
   &__card {
     position: relative;
+    display: block;
     flex: 0 0 auto;
     width: 32rem;
     aspect-ratio: 4 / 3;
     border-radius: 2rem;
     overflow: hidden;
-    border: none;
-    padding: 0;
-    cursor: pointer;
+    text-decoration: none;
     box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.45);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 
@@ -82,89 +81,5 @@
   }
   to {
     transform: translateX(-50%);
-  }
-}
-
-// lightbox
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9998;
-  background: rgba(5, 6, 10, 0.85);
-  backdrop-filter: blur(12px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem;
-
-  &__panel {
-    position: relative;
-    width: min(90rem, 100%);
-    max-height: 90vh;
-    overflow-y: auto;
-    background: var(--color-bg-alt, #171e2f);
-    border: 0.2rem solid #20222e;
-    border-radius: 3rem;
-    display: flex;
-    flex-direction: column;
-
-    @media only screen and (max-width: 57em) {
-      max-height: 85vh;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-      border-radius: 3rem 3rem 0 0;
-    }
-  }
-
-  &__close {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    border: none;
-    background: rgba(5, 6, 10, 0.7);
-    color: var(--color-white);
-    font-size: 1.6rem;
-    cursor: pointer;
-    z-index: 1;
-  }
-
-  &__info {
-    padding: 4rem;
-
-    h3 {
-      font-family: $font-secondary;
-      font-size: 3rem;
-      color: var(--color-white);
-      margin-bottom: 1.6rem;
-    }
-
-    p {
-      color: rgba(242, 242, 242, 0.75);
-      font-size: 1.6rem;
-      line-height: 150%;
-      max-width: 60rem;
-    }
-  }
-
-  &__links {
-    display: flex;
-    gap: 2.4rem;
-    margin-top: 2.4rem;
-
-    a {
-      font-family: $font-tertiary;
-      font-size: 1.4rem;
-      letter-spacing: 0.15em;
-      color: var(--color-accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--color-accent);
-      padding-bottom: 2px;
-    }
   }
 }
