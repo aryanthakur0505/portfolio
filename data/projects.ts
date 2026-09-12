@@ -72,4 +72,16 @@ export const projects: Project[] = [
     image1: "/img/magicpin-1.png",
     image2: "/img/magicpin-2.png",
   },
+  {
+    slug: "oarfin",
+    title: "Oarfin",
+    tags: "REACT, FLUTTER, NODE.JS, LEAFLET.JS",
+    description:
+      "A real-time disaster alert and management platform — runner-up at HackCrux. A live map lets authorities track disasters and mark safe zones, a Flutter app alerts people in danger zones and guides them out, and a scraping-driven news pipeline feeds an AI chatbot for emergency guidance.",
+    link: "https://oarfin-website-nine.vercel.app",
+    linkLabel: "VISIT THE WEBSITE",
+    github: "https://github.com/aryanthakur0505/Oarfin",
+    image1: "/img/oarfin-1.png",
+    image2: "/img/oarfin-2.png",
+  },
 ];
