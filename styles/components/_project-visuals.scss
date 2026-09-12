@@ -2,7 +2,9 @@
 .aurora-card,
 .mailbox-visual,
 .commits-grid,
-.wireframe-globe {
+.wireframe-globe,
+.pipeline-visual,
+.chat-composer {
   width: 100%;
   height: 100%;
   display: flex;
@@ -34,7 +36,7 @@
 
   &__chip,
   &__number,
-  &__footer {
+  &__badge {
     position: relative;
     z-index: 1;
   }
@@ -44,34 +46,34 @@
     height: 3rem;
     border-radius: 0.6rem;
     background: linear-gradient(135deg, #e8d9a8, #c9a84c);
-    margin-bottom: auto;
-    align-self: flex-start;
     position: absolute;
     top: 3rem;
     left: 3rem;
   }
 
-  &__number {
+  &__badge {
     position: absolute;
-    left: 3rem;
-    bottom: 6.5rem;
-    font-family: $font-tertiary;
-    font-size: 1.8rem;
-    letter-spacing: 0.15em;
-    color: rgba(242, 242, 242, 0.85);
-  }
-
-  &__footer {
-    position: absolute;
-    left: 3rem;
+    top: 3rem;
     right: 3rem;
-    bottom: 3rem;
-    display: flex;
-    justify-content: space-between;
     font-family: $font-tertiary;
     font-size: 1.1rem;
     letter-spacing: 0.12em;
     color: var(--color-accent);
+    background: rgba(0, 217, 192, 0.12);
+    border: 1px solid rgba(0, 217, 192, 0.4);
+    border-radius: 100px;
+    padding: 0.5rem 1.2rem;
+  }
+
+  // Kept clear of the marquee card's own bottom title overlay.
+  &__number {
+    position: absolute;
+    left: 3rem;
+    bottom: 9rem;
+    font-family: $font-tertiary;
+    font-size: 1.8rem;
+    letter-spacing: 0.15em;
+    color: rgba(242, 242, 242, 0.85);
   }
 }
 
@@ -168,5 +170,144 @@
     width: 90%;
     aspect-ratio: 1 / 1;
     height: auto;
+  }
+}
+
+/* ---------- Pipeline / ops status (Payeazie) ---------- */
+.pipeline-visual {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: linear-gradient(160deg, #0a1218, #0a0d14);
+  padding: 3rem;
+  gap: 2.4rem;
+
+  &__workers {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-top: 1rem;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-family: $font-tertiary;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: rgba(242, 242, 242, 0.8);
+  }
+
+  &__dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    &--healthy {
+      background: #2fd67f;
+      box-shadow: 0 0 12px rgba(47, 214, 127, 0.6);
+    }
+    &--watch {
+      background: #e6972f;
+      box-shadow: 0 0 12px rgba(230, 151, 47, 0.6);
+    }
+  }
+
+  &__log {
+    margin-top: auto;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+  }
+
+  &__log-track {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: pipelineLogScroll 14s linear infinite;
+    font-family: $font-tertiary;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    color: rgba(0, 217, 192, 0.7);
+    white-space: nowrap;
+  }
+}
+
+@keyframes pipelineLogScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Chat composer (MagicPin) ---------- */
+.chat-composer {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  background: linear-gradient(160deg, #120a14, #0a0a14);
+  padding: 3rem;
+  gap: 1.2rem;
+
+  &__bubble {
+    max-width: 85%;
+    padding: 1.4rem 1.8rem;
+    border-radius: 1.6rem;
+    font-family: $font-primary;
+    font-size: 1.4rem;
+    line-height: 1.4;
+
+    &--in {
+      align-self: flex-start;
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(242, 242, 242, 0.7);
+      border-bottom-left-radius: 0.4rem;
+    }
+    &--out {
+      align-self: flex-end;
+      background: linear-gradient(135deg, rgba(0, 217, 192, 0.25), rgba(230, 151, 47, 0.25));
+      border: 1px solid rgba(0, 217, 192, 0.35);
+      color: var(--color-white);
+      border-bottom-right-radius: 0.4rem;
+    }
+  }
+
+  &__typing {
+    align-self: flex-start;
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.8rem 1.4rem;
+
+    span {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      background: rgba(242, 242, 242, 0.4);
+      animation: typingBounce 1s ease-in-out infinite;
+
+      &:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+    }
+  }
+}
+
+@keyframes typingBounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
   }
 }

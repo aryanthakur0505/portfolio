@@ -8,11 +8,8 @@ export default function AuroraCard() {
     <div className="aurora-card">
       <div className="aurora-card__glow" />
       <div className="aurora-card__chip" />
+      <div className="aurora-card__badge">REC 92%</div>
       <div className="aurora-card__number">•••• •••• •••• 4471</div>
-      <div className="aurora-card__footer">
-        <span>RAZORRECOVER</span>
-        <span>REC 92%</span>
-      </div>
     </div>
   );
 }

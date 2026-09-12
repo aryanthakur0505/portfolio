@@ -4,6 +4,8 @@ import AuroraCard from "./visuals/AuroraCard";
 import MailboxVisual from "./visuals/MailboxVisual";
 import CommitsGridVisual from "./visuals/CommitsGridVisual";
 import WireframeGlobe from "./visuals/WireframeGlobe";
+import PipelineVisual from "./visuals/PipelineVisual";
+import ChatComposerVisual from "./visuals/ChatComposerVisual";
 
 // Live component visuals for a few projects, in place of the flat mockup
 // image — falls back to project.image1 for anything not listed here.
@@ -12,6 +14,8 @@ const VISUALS: Record<string, ComponentType> = {
   mailpilot: MailboxVisual,
   gitpulse: CommitsGridVisual,
   oarfin: WireframeGlobe,
+  payeazie: PipelineVisual,
+  magicpin: ChatComposerVisual,
 };
 
 /**
