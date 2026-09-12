@@ -1,0 +1,172 @@
+// Shared wrapper: fills the marquee card slot the same way the <img> did.
+.aurora-card,
+.mailbox-visual,
+.commits-grid,
+.wireframe-globe {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- AuroraCard (RazorRecover) ---------- */
+.aurora-card {
+  background: linear-gradient(160deg, #0e1720, #0a1014);
+  padding: 3rem;
+
+  &__glow {
+    position: absolute;
+    inset: -20%;
+    background: conic-gradient(
+      from 0deg,
+      rgba(0, 217, 192, 0.5),
+      rgba(87, 163, 199, 0.4),
+      rgba(167, 139, 250, 0.4),
+      rgba(0, 217, 192, 0.5)
+    );
+    filter: blur(40px);
+    opacity: 0.55;
+    animation: auroraSpin 12s linear infinite;
+  }
+
+  &__chip,
+  &__number,
+  &__footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__chip {
+    width: 4rem;
+    height: 3rem;
+    border-radius: 0.6rem;
+    background: linear-gradient(135deg, #e8d9a8, #c9a84c);
+    margin-bottom: auto;
+    align-self: flex-start;
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+  }
+
+  &__number {
+    position: absolute;
+    left: 3rem;
+    bottom: 6.5rem;
+    font-family: $font-tertiary;
+    font-size: 1.8rem;
+    letter-spacing: 0.15em;
+    color: rgba(242, 242, 242, 0.85);
+  }
+
+  &__footer {
+    position: absolute;
+    left: 3rem;
+    right: 3rem;
+    bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-tertiary;
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+  }
+}
+
+@keyframes auroraSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Mailbox visual (MailPilot) ---------- */
+.mailbox-visual {
+  flex-direction: column;
+  background: radial-gradient(circle at 50% 30%, #0e1a1c, #0a1214);
+  padding: 3rem;
+  text-align: center;
+  gap: 1.2rem;
+
+  &__icon {
+    position: relative;
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__badge {
+    position: absolute;
+    top: -0.6rem;
+    right: -1.2rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-family: $font-tertiary;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 100px;
+  }
+
+  h3 {
+    font-family: $font-secondary;
+    font-size: 2rem;
+    color: var(--color-white);
+    margin-top: 1rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: rgba(242, 242, 242, 0.6);
+    max-width: 26rem;
+  }
+}
+
+/* ---------- Commits grid (GitPulse) ---------- */
+.commits-grid {
+  flex-direction: column;
+  background: #0a0a14;
+  gap: 0.4rem;
+  padding: 2rem;
+
+  &__row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__letter {
+    display: flex;
+    gap: 0.3rem;
+  }
+
+  &__cell {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 0.2rem;
+    background: rgba(255, 255, 255, 0.04);
+
+    &[data-level="2"] {
+      background: rgba(0, 217, 192, 0.35);
+    }
+    &[data-level="3"] {
+      background: rgba(0, 217, 192, 0.65);
+    }
+    &[data-level="4"] {
+      background: var(--color-accent);
+    }
+  }
+}
+
+/* ---------- Wireframe globe (Oarfin) ---------- */
+.wireframe-globe {
+  background: radial-gradient(circle at 50% 40%, #0c1712, #0a0f0d);
+
+  &__canvas {
+    width: 90%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+}
