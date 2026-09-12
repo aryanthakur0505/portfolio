@@ -4,6 +4,7 @@ import { cubicBezier, motion } from "framer-motion";
 import { Navigation } from "../components/Navigation/Navigation";
 import AnimatedGradientBackground from "../components/AnimatedGradientBackground";
 import ProjectMarquee from "../components/ProjectMarquee";
+import CommandPalette from "../components/CommandPalette";
 
 const locomotiveScroll =
   typeof window !== "undefined" ? require("locomotive-scroll").default : null;
@@ -32,6 +33,9 @@ const Home: React.FC = () => {
       lscroll.update();
     });
 
+    // exposed for CommandPalette's "Go to …" actions
+    (window as any).__lscroll = lscroll;
+
     // custom cursor
     const cursor = document.querySelector(".cursor");
     window.onmousemove = (e: any) => {
@@ -51,7 +55,10 @@ const Home: React.FC = () => {
       "color: #fff; background: #00d9c0; padding:5px 0;",
     ]);
 
-    return () => lscroll?.destroy();
+    return () => {
+      lscroll?.destroy();
+      if ((window as any).__lscroll === lscroll) (window as any).__lscroll = null;
+    };
   }, []);
 
   function toggleBodyScroll(isOpen: boolean) {
@@ -109,6 +116,8 @@ const Home: React.FC = () => {
 
       <div className="cursor" />
 
+      <CommandPalette />
+
       <Navigation isOpen={isToggleOpen} toggleOpen={() => toggleBodyScroll(isToggleOpen)} />
 
       <div className="header-wrapper">
@@ -157,7 +166,7 @@ const Home: React.FC = () => {
           <ProjectMarquee />
         </section>
 
-        <section className="section-contact">
+        <section id="sectionContact" className="section-contact">
           <h1 className="heading-1">
             <span>Sold Yet? </span> <small>🤙</small>
           </h1>
@@ -171,7 +180,7 @@ const Home: React.FC = () => {
           </h2>
         </section>
 
-        <section className="section-socials">
+        <section id="sectionSocials" className="section-socials">
           <h1 className="heading-1">
             <span>Dont be a stranger!</span> <small>👋</small>
           </h1>
