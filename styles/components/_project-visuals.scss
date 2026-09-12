@@ -1,16 +1,20 @@
 // Shared wrapper: fills the marquee card slot the same way the <img> did.
+// Absolute + inset:0 (rather than width/height:100%) so sizing is resolved
+// unambiguously against the positioned ancestor — a percentage-height flex
+// child inside an aspect-ratio box can otherwise get centered against a
+// stale intrinsic height before the aspect-ratio is resolved, pushing
+// content outside the visible box.
 .aurora-card,
 .mailbox-visual,
 .commits-grid,
 .wireframe-globe,
 .pipeline-visual,
 .chat-composer {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   overflow: hidden;
 }
 
@@ -87,9 +91,9 @@
 .mailbox-visual {
   flex-direction: column;
   background: radial-gradient(circle at 50% 30%, #0e1a1c, #0a1214);
-  padding: 3rem;
+  padding: 2rem 3rem;
   text-align: center;
-  gap: 1.2rem;
+  gap: 0.8rem;
 
   &__icon {
     position: relative;
@@ -97,6 +101,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
 
   &__badge {
@@ -115,15 +120,17 @@
 
   h3 {
     font-family: $font-secondary;
-    font-size: 2rem;
+    font-size: 1.7rem;
+    line-height: 1.2;
     color: var(--color-white);
-    margin-top: 1rem;
+    margin-top: 0.4rem;
   }
 
   p {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
+    line-height: 1.35;
     color: rgba(242, 242, 242, 0.6);
-    max-width: 26rem;
+    max-width: 24rem;
   }
 }
 

@@ -139,7 +139,10 @@
     padding: 0 4rem;
   }
 
-  p {
+  // Direct child only — a bare `p` here also matched nested <p> tags deep
+  // inside ProjectMarquee's visual components (e.g. MailboxVisual),
+  // inflating their layout with an unwanted 15rem bottom margin.
+  > p {
     margin-bottom: 15rem;
     margin-top: 2rem;
   }
