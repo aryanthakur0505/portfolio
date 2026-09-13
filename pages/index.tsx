@@ -5,6 +5,7 @@ import { Navigation } from "../components/Navigation/Navigation";
 import AnimatedGradientBackground from "../components/AnimatedGradientBackground";
 import ProjectMarquee from "../components/ProjectMarquee";
 import CommandPalette from "../components/CommandPalette";
+import MagneticDock from "../components/MagneticDock";
 
 const locomotiveScroll =
   typeof window !== "undefined" ? require("locomotive-scroll").default : null;
@@ -117,6 +118,7 @@ const Home: React.FC = () => {
       <div className="cursor" />
 
       <CommandPalette />
+      <MagneticDock />
 
       <Navigation isOpen={isToggleOpen} toggleOpen={() => toggleBodyScroll(isToggleOpen)} />
 

@@ -1,0 +1,63 @@
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: 2.4rem;
+  transform: translateX(-50%);
+  z-index: 850;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1rem 1.4rem;
+  border-radius: 2rem;
+  background: rgba(10, 12, 18, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(242, 242, 242, 0.12);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.4);
+
+  @media only screen and (max-width: 45em) {
+    display: none;
+  }
+}
+
+.dock__icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(242, 242, 242, 0.75);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 217, 192, 0.15);
+    color: var(--color-accent);
+  }
+}
+
+.dock__tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.8rem;
+  background: rgba(10, 12, 18, 0.92);
+  border: 1px solid rgba(242, 242, 242, 0.12);
+  font-family: $font-tertiary;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.dock__icon:hover .dock__tooltip {
+  opacity: 1;
+}
