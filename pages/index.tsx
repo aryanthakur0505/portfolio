@@ -132,9 +132,19 @@ const Home: React.FC = () => {
               <br />
               <span>so you don&apos;t have to.</span>
             </div>
-            <a data-scroll-to className="header__hero--cta" href="#sectionProjects">
-              VIEW PROJECTS
-            </a>
+            <div className="header__hero--ctas">
+              <a data-scroll-to className="header__hero--cta" href="#sectionProjects">
+                VIEW PROJECTS
+              </a>
+              <a
+                className="header__hero--cta header__hero--cta--resume"
+                href="/Aryan-Thakur-Resume.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                RESUME ↗
+              </a>
+            </div>
           </div>
         </header>
         <div className="header__footer">
@@ -147,6 +157,9 @@ const Home: React.FC = () => {
               💼 LD
             </a>
             <a href="mailto:aryanthakur0505@gmail.com">📧 EMAIL</a>
+            <a href="/Aryan-Thakur-Resume.pdf" target="_blank" rel="noopener">
+              📄 RESUME
+            </a>
           </div>
         </div>
       </div>
@@ -193,6 +206,9 @@ const Home: React.FC = () => {
               💼 LinkedIn
             </a>
             <a href="mailto:aryanthakur0505@gmail.com">📧 Email</a>
+            <a href="/Aryan-Thakur-Resume.pdf" target="_blank" rel="noopener">
+              📄 Resume
+            </a>
           </div>
         </section>
       </main>

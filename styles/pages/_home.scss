@@ -58,8 +58,15 @@
         animation: gradient 3s ease infinite;
       }
     }
-    &--cta {
+    &--ctas {
       margin-top: 13rem;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    &--cta {
       display: inline-block;
       font-family: $font-tertiary;
       font-size: 1.8rem;
@@ -83,6 +90,23 @@
 
       &:hover::after {
         width: 100%;
+      }
+
+      &--resume {
+        color: var(--color-accent);
+        border: 1px solid rgba(0, 217, 192, 0.4);
+        border-radius: 100px;
+        padding: 1.2rem 2.4rem;
+        transition: background 0.25s ease, border-color 0.25s ease;
+
+        &::after {
+          display: none;
+        }
+
+        &:hover {
+          background: rgba(0, 217, 192, 0.12);
+          border-color: var(--color-accent);
+        }
       }
     }
   }

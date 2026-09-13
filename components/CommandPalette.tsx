@@ -32,6 +32,7 @@ const PROJECT_COMMANDS: Command[] = projects.map((p) => ({
 }));
 
 const SOCIAL_COMMANDS: Command[] = [
+  { id: "resume", label: "Open resume (PDF)", group: "Social", action: { type: "link", href: "/Aryan-Thakur-Resume.pdf" } },
   { id: "github", label: "Open GitHub profile", group: "Social", action: { type: "link", href: "https://github.com/aryanthakur0505" } },
   { id: "linkedin", label: "Open LinkedIn", group: "Social", action: { type: "link", href: "https://linkedin.com/in/aryan-thakur-3a976b286" } },
   { id: "email", label: "Copy email address", group: "Social", hint: "aryanthakur0505@gmail.com", action: { type: "copy", value: "aryanthakur0505@gmail.com" } },

@@ -147,6 +147,8 @@
       height: 28.8rem;
       text-decoration: none;
       position: relative;
+      border-radius: 4.5rem;
+      overflow: hidden;
       font-family: $font-secondary;
       font-size: 2.2rem;
       line-height: 130%;
@@ -160,24 +162,32 @@
       &:hover {
         width: 41.5rem;
         height: 31.8rem;
-        img {
-          opacity: 0.5;
-        }
       }
       img {
-        border-radius: 4.5rem;
         height: 100%;
         width: 100%;
         object-fit: cover;
         transition: all 0.3s ease-in-out;
       }
 
+      // scrim + label pinned to the bottom, legible over any visual —
+      // live component or fallback image alike
+      &::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 40%;
+        background: linear-gradient(to top, rgba(5, 6, 10, 0.85), transparent);
+        pointer-events: none;
+      }
+
       h2 {
         text-align: left;
         color: var(--color-white);
         position: absolute;
-        top: 40%;
-        left: 10%;
+        bottom: 2.4rem;
+        left: 2.4rem;
+        z-index: 1;
       }
     }
   }

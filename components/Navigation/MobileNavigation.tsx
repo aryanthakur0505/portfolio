@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cubicBezier, motion } from "framer-motion";
 import { projects } from "../../data/projects";
+import { PROJECT_VISUALS } from "../visuals";
 
 const ease = cubicBezier(0.6, 0.01, -0.05, 0.9);
 
@@ -41,6 +42,9 @@ export const MobileNavigation = ({ variants, isOpen }: any) => (
             <a href="https://linkedin.com/in/aryan-thakur-3a976b286" rel="noopener" target="_blank">
               💼 LD
             </a>
+            <a href="/Aryan-Thakur-Resume.pdf" rel="noopener" target="_blank">
+              📄 CV
+            </a>
           </div>
         </div>
         <div className="navigation-top__right">
@@ -61,18 +65,21 @@ export const MobileNavigation = ({ variants, isOpen }: any) => (
       >
         <h4 className="navigation-h4">FEATURED PROJECTS</h4>
         <div className="navigation-bottom__projects">
-          {projects.map((project) => (
-            <a
-              key={project.slug}
-              target="_blank"
-              rel="noopener"
-              href={project.link}
-              className="navigation-bottom__projects-card"
-            >
-              <img src={`/img/${project.slug}-nav.png`} alt={project.title} />
-              <h2>{project.title}</h2>
-            </a>
-          ))}
+          {projects.map((project) => {
+            const Visual = PROJECT_VISUALS[project.slug];
+            return (
+              <a
+                key={project.slug}
+                target="_blank"
+                rel="noopener"
+                href={project.link}
+                className="navigation-bottom__projects-card"
+              >
+                {Visual ? <Visual /> : <img src={project.image1} alt={project.title} />}
+                <h2>{project.title}</h2>
+              </a>
+            );
+          })}
         </div>
       </motion.div>
     </motion.div>
